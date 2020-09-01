@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export const NumberContext = React.createContext();
 
 const NumberProvider = (props) => {
-  const [number, setNumber] = useState('');
+  const [number, setNumber] = useState('0');
   const [storedNumber, setStoredNumber] = useState('');
   const [functionType, setFunctionType] = useState('');
   const handleSetDisplayValue = (num) => {
@@ -34,18 +34,19 @@ const NumberProvider = (props) => {
     }
   };
   const handleClearValue = () => {
-    setNumber('');
+    setNumber('0');
     setStoredNumber('');
     setFunctionType('');
   };
   const handleDeleteLastNum = (num) => {
-    if (num !== '') {
+    if (num.length === 1) {
+      setNumber('0');
+    } else {
       const displayValue = num.slice(0, num.length - 1);
       setNumber(displayValue);
     }
   };
   const handleChangeTheNumberSign = () => {
-    console.log(storedNumber);
     if (number) {
       if (number > 0) {
         setNumber(`-${number}`);
@@ -79,15 +80,8 @@ const NumberProvider = (props) => {
           break;
       }
       setNumber('');
-      // setFunctionType('');
     }
   };
-  // const getSignByType = type => {
-  //   switch (type) {
-  //     case '*':
-  //     return `${&times;}`
-  //   }
-  // }
 
   return (
     <NumberContext.Provider value={{
