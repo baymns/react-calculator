@@ -18,11 +18,11 @@ const Calculator = () => (
       <ClearButton />
       <BackButton />
       <NegativeButton />
-      <FunctionButton type="/" />
+      <FunctionButton type={'\u00f7'} />
       <NumberButton buttonValue={7} />
       <NumberButton buttonValue={8} />
       <NumberButton buttonValue={9} />
-      <FunctionButton type="*" />
+      <FunctionButton type={'\u00d7'} />
       <NumberButton buttonValue={4} />
       <NumberButton buttonValue={5} />
       <NumberButton buttonValue={6} />

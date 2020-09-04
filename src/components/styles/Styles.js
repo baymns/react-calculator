@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CalculatorStyles = styled.div`
   background-color: #000;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   display: grid;
   justify-items: center;
@@ -10,7 +10,9 @@ export const CalculatorStyles = styled.div`
   grid-template-columns: 1fr;
   @media (max-width: 500px) {
     max-width: 90%;
-    padding: 5%;
+    padding: 0 5% 0;
+    grid-template-rows: 160px ;
+
   }
   .display {
     font-family: 'Roboto', sans-serif;
@@ -19,7 +21,7 @@ export const CalculatorStyles = styled.div`
     width: 100%;
     @media (max-width: 500px) {
       width: 100%;
-      max-height: 200px;
+      padding: 7% 0 0;
     }
     h1 {
       font-size: 4rem;
@@ -27,6 +29,7 @@ export const CalculatorStyles = styled.div`
       text-align: center;
       @media (max-width: 500px) {
         font-size: 2rem;
+        display: none;
       }
     }
   }
@@ -41,6 +44,8 @@ export const CalculatorStyles = styled.div`
     @media (max-width: 500px) {
       width: 100%;
       margin: 0;
+      grid-gap: 10px;
+
     }
     button {
       width: 100%;
@@ -57,6 +62,10 @@ export const CalculatorStyles = styled.div`
       &:hover {
         border: 3px solid #dfe6e9;
         font-weight: 500;
+      }
+      @media (max-width: 500px) {
+        height: 85px;
+        font-size: 1.5rem;
       }
     }
     button.function-button {
@@ -82,7 +91,7 @@ export const DisplayStyles = styled.div`
   display: grid;
   grid-template-rows: 90px 50px;
   grid-template-columns: 1fr;
-  max-width: 700px;
+  max-width: 480px;
   margin: 10px auto;
   align-items: center;
   border-radius: 20px;
@@ -102,8 +111,8 @@ export const DisplayStyles = styled.div`
     border-bottom: 4px solid white;
     padding: 15px 20px;
     @media (max-width: 500px) {
-      font-size: 1.5rem;
-      padding: 10px;
+      font-size: 2.0rem;
+      padding: 0px 0px 0px;
     }
   }
   h2.long-main-display {

@@ -7,7 +7,7 @@ const NumberProvider = (props) => {
   const [storedNumber, setStoredNumber] = useState('');
   const [functionType, setFunctionType] = useState('');
   const handleSetDisplayValue = (num) => {
-    if (!number.length && num === 0) {
+    if (number.length === 1 && num === 0) {
       setNumber(`${`${num}`.replace(/^0+/, '0')}`);
     }
     if (number === '0') {
@@ -16,8 +16,10 @@ const NumberProvider = (props) => {
       } else {
         setNumber(`${num}`);
       }
-    } else {
+    } else if ((number[0] !== '0' && num === '.' && !number.includes('.')) || num !== '.') {
       setNumber(number + num);
+    } else if (number.length > 18) {
+      setNumber(number);
     }
   };
   const handleStoredValue = () => {
@@ -70,10 +72,10 @@ const NumberProvider = (props) => {
         case '-':
           setStoredNumber(Math.round((parseFloat(storedNumber) - parseFloat(number)) * 1000) / 1000);
           break;
-        case '*':
+        case '\u00d7':
           setStoredNumber(Math.round((parseFloat(number) * parseFloat(storedNumber)) * 1000) / 1000);
           break;
-        case '/':
+        case '\u00f7':
           setStoredNumber(Math.round((parseFloat(storedNumber) / parseFloat(number)) * 1000) / 1000);
           break;
         default:
